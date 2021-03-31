@@ -1,0 +1,554 @@
+// font-family: 'Barrio', cursive;
+// font-family: 'Luckiest Guy', cursive;
+// font-family: 'McLaren', cursive;
+
+html {
+	background: $dark-black;
+	overflow-x: hidden;
+}
+
+body {
+	background: $primary-dark;
+}
+
+.landing-bg {
+	background: $primary;
+	background: url("../images/intro-art.png") center / cover;
+
+	@include xl {
+		// background: url("../images/intro-art.png") center top/110%;
+	}
+	// background-attachment: fixed;
+	height: 92vh;
+	box-shadow: 0 0 200px rgba(0,0,0,0.5) inset;
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.tickets-available {
+	@include flex;
+	flex-flow: column;
+	width: 200px;
+	@include font_lucky;
+	font-size: 1.1em;
+	position: absolute;
+	top: 25px;
+	left: 48%;
+
+	@include md {
+		width: 295px;
+		font-size: 1.3em;
+		top: 10px;
+		left: 67%;
+	}
+
+	@include lg {
+		left: 65%;
+	}
+
+	@include xl {
+		left: 62%;
+	}
+	
+	a {
+		color: $black;
+		text-align: center;
+		padding: 20px;
+		position: relative;
+		top: -135px;
+		transition: font-size .1s ease-in; 
+		animation: wobble 4.5s infinite;
+		&:hover, &:focus { 
+			color: $white;
+			font-size: 115%;
+			text-shadow: 0px 0px 5px black;
+		}
+
+		@include md {
+			padding: 40px;
+			top: -205px;
+		}
+
+		img.icon {
+			position: relative;
+			display: block;
+			top: -10px;
+			margin: 0 auto;
+			height: 40px;
+
+			@include md {
+				height: unset;
+			}
+		}
+	}
+
+}
+
+.landing-content {
+	position: relative;
+    width: 100%;
+	max-width: 1500px;
+
+	@include gt(1500px) {
+		left: calc(50% - 750px);
+	}
+
+	
+	
+	.primary-wrapper {
+		margin-top: 530px;
+		background: linear-gradient(180deg, transparent 0, #c10709 22%);
+
+		@include md {
+			margin-top: 270px;
+		}
+		
+		.quote-release-wrapper {
+			@include flex;
+			flex-flow: column-reverse;
+			
+			@include md {
+				flex-flow: column;
+			}
+		}
+
+		blockquote {
+			margin: 40px 40px 0 40px;
+			font-family: 'McLaren', cursive;
+			color: $white;
+			font-size: 1.5em;
+			line-height: 1.5em;
+			text-align: center;
+
+			@include md {
+				text-align: left;
+			}
+			
+			.critic {
+	
+				@include font_lucky;
+				font-size: 11px;
+				margin-left: 10px;
+	
+				&::before {
+					content: "";
+					display: inline-block;
+					background: url(../images/star.png) center / cover;
+					background-repeat: no-repeat;
+					width: 13px;
+					height: 13px;
+					margin-right: 5px;
+				}
+			}
+		}
+
+		.release {
+			@include font_lucky;
+			color: $secondary;
+			text-align: center;
+			font-size: 1.25em;
+			position: relative;
+
+			@include md {
+				font-size: 1.5em;
+			}
+		}
+
+		.halfs-wrapper {
+			@include flex;
+			flex-flow: column;
+			margin: 40px;
+
+			@include md {
+				flex-flow: row;
+			}
+			
+			.half {
+				z-index: 5;
+
+				@include md {
+					@include flex;
+					width: 50%;
+					flex-flow: column;
+					justify-content: center;
+
+				}
+			}
+			@include md {
+				.half > div {
+					width: 100%;
+					align-items: flex-start;
+				}
+			}
+			.slider {
+				width: 100%;
+				cursor: pointer;
+
+				img {
+					width: 100%;
+				}
+
+				.slide {
+					@include font_lucky;
+
+					a {
+						display: grid;
+						color: $white;
+					}
+					
+					.outline, .bg, .h {
+						grid-column: 1;
+						grid-row: 1;
+					}
+					
+					.outline {
+						z-index: 2;
+					}
+					
+					.bg {
+						z-index: 1;
+					}
+
+					.h {
+						text-align: center;
+						z-index: 3;
+						display: flex;
+						justify-content: center;
+						align-items: flex-end;
+						padding: 15px;
+						font-size: 100%;
+					}
+				}
+			}
+			#customize-controls {
+				margin: 0;
+				padding: 0;
+				@include flex;
+				text-align: center;
+				font-size: 30px;
+				line-height: 45px;
+				color: $white;
+
+				.next, .prev {
+					list-style: none;
+					border-radius: 100%;
+					background: $secondary;
+					width: 40px;
+					height: 40px;
+					margin: 15px 15px 15px 0;
+
+				}
+			}
+	
+			.bulletin {
+				margin: 40px 0;
+				width: 100%;
+				@include font_lucky;
+				z-index: 8;
+
+				@include md {
+					align-items: center;
+					justify-content: center;
+				}
+				
+				img {
+					width: 100%;
+				}
+
+				.h {
+					width: 75%;
+					font-size: 1.5em;
+					@include flex;
+					justify-content: center;
+					align-items: center;
+					text-align: center;
+					margin: 0 auto;
+					margin: -50px auto 0 auto;
+				}
+
+				a {
+					display: grid;
+					color: $black;
+				}
+
+				img, .h {
+					grid-column: 1;
+					grid-row: 1;
+				}
+			}
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			height: 700px;
+			width: 100%;
+			background: url(../images/dots2.png) center / 150%;
+			position: relative;
+			top: -650px;
+			margin-bottom: -710px;
+			z-index: 1;
+
+			@include sm {
+				display: none;
+			}
+		}
+
+	}
+
+}
+
+
+.story-angled {
+	display: block;;
+	position: relative;
+    width: 100%;
+    height: 56px;
+	top: 1px;
+	z-index: 7;
+
+	@include sm {
+		height: 71px;
+	}
+
+	@include md {	
+		height: 91px;
+	}
+
+	@include lg {	
+		height: 106px;
+	}
+
+
+}
+
+.story-wrapper {
+	padding-top: 40px;
+	background: $white;
+	position: relative;
+	z-index: 8;
+
+	.story {
+
+		@include flex;
+		flex-flow: column;
+
+		@include md {
+			flex-flow: row;
+			max-width: 700px;
+			margin: 140px auto;
+		}
+
+		@include lg {
+			max-width: 900px;
+		}
+
+		@include xl {
+			max-width: 1080px;
+		}
+
+		@include md {
+			.stars::before {
+				content: '';
+				display: block;
+				position: relative;
+				background: url(../images/stars.png) center / cover;
+				width: 40px;
+				height: 40px;
+				top: 51px;
+				right: 41px;
+			}
+		}
+
+		
+
+		.info {
+			padding: 0 20px;
+
+			@include md {
+				display: flex;
+				flex-flow: column;
+				width: 45%;
+				margin-right: 5%;
+				justify-content: center;
+			}
+
+			h1 {
+				font-family: 'Barrio', cursive;
+				font-size: 2.5em;
+				line-height: 1.5em;
+			}
+			.scroller {
+				font-family: 'McLaren', cursive;
+				line-height: 2em;
+				
+				@include md {
+					font-size: .8em;
+					height: 180px;
+					overflow-y: scroll;
+					padding-right: 25px;
+				}
+			}
+		}
+	
+		.art {
+			padding: 40px 20px 0 20px;
+			text-align: center;
+
+			@include md {
+				display: flex;
+				flex-flow: column;
+				width: 50%;
+			}
+		}
+
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		background: url("../images/dots.png") center / cover;
+		height: 770px;
+    	margin-top: -720px;
+	}
+}
+
+.footer-wrapper {
+	background: $black;
+
+	footer {
+		color: $grey;
+		width: 100%;
+		max-width: 1500px;
+		margin: 0 auto;
+		padding: 10px 20px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: .4em;
+		line-height: 3em;
+		text-align: center;
+
+		@include md {
+			color: $white;
+			padding: 20px 50px;
+			
+		}
+
+		@include md {
+			@include flex;
+			justify-content: space-between;
+			align-items: center;
+			text-align: right;
+		}
+
+		a {
+			color: $grey;
+			@include md {
+				color: $white;
+			}
+		}
+
+		a:hover {
+			color: $secondary;
+		}
+
+		.delimit::after {
+			content: '|';
+			padding: 0 7px;
+			color: $white;
+
+		}
+
+		.company {
+
+			@include flex;
+			justify-content: center;
+
+			a {
+				@include flex;
+				flex-flow: column;
+				justify-content: center;
+
+				&:nth-child(1) img {
+					padding-left: 0;
+				}
+				&:nth-child(3) img {
+					padding-right: 0;
+				}
+			}
+
+			img {
+				width: 100%;
+				padding: 10px 3vw;
+
+				@include md {
+					width: 80%;
+					padding: 10px;
+				}
+			}
+
+		}
+
+		.info {
+			padding-top: 15px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+// Scrollbar
+.scroller::-webkit-scrollbar {
+	width: 10px;
+}
+.scroller::-webkit-scrollbar-thumb {
+	background: $primary;
+	animation: gecko .5s infinite;
+}
+.scroller::-webkit-scrollbar-thumb:hover {
+	background: color.scale($primary, $lightness: -10%); 
+}
+
+// Animations
+
+@keyframes wobble {
+	from {
+		transform: scale(1) rotate(0deg);
+	}
+	12.5% {
+		transform: scale(1.15) rotate(-5deg);
+	}
+	25% {
+		transform: scale(1.15) rotate(5deg);
+	}
+	37.5% {
+		transform: scale(1.15) rotate(-5deg);
+	}
+	50% {
+		transform: scale(1) rotate(0deg);
+	}
+	62.5% {
+		transform: scale(1.15) rotate(5deg);
+	}
+	75% {
+		transform: scale(1.15) rotate(-5deg);
+	}
+	87.5% {
+		transform: scale(1.15) rotate(5deg);
+	}
+	to {
+		transform: scale(1) rotate(0deg);
+	}
+}
+
+@keyframes gecko {
+	from {
+		background: $primary;
+	}
+	50% {
+		background: $secondary;
+	}
+	to {
+		background: $primary;
+	}
+}
